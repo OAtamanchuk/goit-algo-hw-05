@@ -65,7 +65,7 @@ def display_log_counts(counts: dict):
 
 def main():
     if len(sys.argv) < 2:
-        print("Вкажіть шлях до лог-файлу у форматі: python task3.py log.txt INFO")
+        print("Вкажіть шлях до лог-файлу у форматі: python main.py path/to/logfile.log error")
         return
 
     file_path = sys.argv[1]
