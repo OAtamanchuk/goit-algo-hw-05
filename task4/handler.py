@@ -1,6 +1,7 @@
 import re
 from decorators import input_error
 
+"""
 def normalize_phone(phone):
     pattern = r'^[0-9+\-()]+'
     if not re.fullmatch(pattern, phone):
@@ -23,28 +24,29 @@ def normalize_name(name):
     if not re.fullmatch(pattern, name):
         raise ValueError("Invalid name format")
     return name.capitalize()
+"""
 
 @input_error
 def add_contact(args, contacts):
     name, phone = args  # тут може бути ValueError / IndexError
-    name = normalize_name(name)
-    phone = normalize_phone(phone)
+    name = name
+    phone = phone
     contacts[name] = phone
     return "Contact added."
 
 @input_error
 def change_contact(args, contacts):
     name, new_phone = args  # може бути ValueError / IndexError
-    name = normalize_name(name)
+    name = name
     if name not in contacts:
         raise KeyError
-    new_phone = normalize_phone(new_phone)
+    new_phone = new_phone
     contacts[name] = new_phone
     return "Contact updated."
 
 @input_error
 def show_phone(args, contacts):
-    name = normalize_name(args[0])  # може бути IndexError
+    name = args[0]  # може бути IndexError
     return contacts[name]  # може бути KeyError
 
 @input_error

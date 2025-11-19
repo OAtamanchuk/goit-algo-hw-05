@@ -4,7 +4,7 @@ from typing import Callable, Generator
 
 def generator_numbers(text: str) -> Generator[float, None, None]:
     # Генерує всі числа з тексту
-    pattern = r"\d+\.\d+|\d+"
+    pattern = r"\s(\d+(?:\.\d+)?)\s"
     for match in re.findall(pattern, text):
         yield float(match)
 
